@@ -13,11 +13,12 @@ COPY . .
 # 依存関係をインストール
 RUN npm install
 
-# アプリケーションをビルド
-RUN npm run build
+# # アプリケーションをビルド
+# RUN npm run build
 
 # ポート番号を指定
 EXPOSE 3010
 
-# アプリケーションを起動
-CMD ["npm","run","dev"]
+# アプリケーションをビルド&起動
+CMD /bin/sh -c "npm run build && npm run dev"
+# CMD ["npm","run","dev"]
